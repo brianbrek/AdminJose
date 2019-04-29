@@ -1,0 +1,66 @@
+.card1 {
+    box-shadow: rgb(204, 204, 204) 9px 8px 15px 4px;
+    background: #ff4b1f;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #ff9068, #ff4b1f);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #ff9068, #ff4b1f); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;    
+    color: white;
+    width: 100%;
+    height: 150px;
+}
+
+.card2 {
+    box-shadow: rgb(204, 204, 204) 9px 8px 15px 4px;
+    border: none;   
+    background: #0575E6;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #021B79, #0575E6);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #021B79, #0575E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    width: 100%;
+    height: 150px;
+}
+
+.card3 {
+    box-shadow: rgb(204, 204, 204) 9px 8px 15px 4px;
+    border: none;   
+    background: #11998e;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #38ef7d, #11998e);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #38ef7d, #11998e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: white;
+    width: 100%;
+    height: 150px;
+}
+
+.card4 {
+    box-shadow: rgb(204, 204, 204) 9px 8px 15px 4px;
+    background: #642B73;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #C6426E, #642B73);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #C6426E, #642B73); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border: none;   
+    color: white;
+    width: 100%;
+    height: 150px;
+}
+
+.card1, .card2, .card3, .card4 {
+    font-family:'Nunito', sans-serif;
+    margin-bottom: 1.875rem;
+    
+}
+
+.card1 h4, .card2 h4, .card3 h4, .card4 h4 {
+    color: white!important;
+}
+
+.card4 .material-icons {
+    font-size: 55px;
+}
+.card2 .material-icons {
+    font-size: 55px;
+}
+.card3 .material-icons {
+    font-size: 55px;
+}
+.card1 .material-icons {
+    font-size: 55px;
+}

@@ -1,0 +1,54 @@
+.navbar-light .navbar-nav .nav-link, a{
+font-size: 15px;
+font-family: 'Lato', sans-serif!important;
+}
+
+.navbar {
+    min-height: 58px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar .oculto {
+    display: none;
+}
+
+.navbar-nav{
+    margin-bottom: 18px;
+    margin-top: 10px;
+}
+
+
+  a{
+    color: rgb(75, 69, 69);
+  transition: all 0.1s;
+  font-family:'Nunito', sans-serif!important;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: rgb(37, 122, 248)!important;
+    font-weight: 800;
+    background-color: #eaeaea;
+  }
+  
+  
+  .navbar p{
+    font-size: 17px;
+    margin: auto;
+    font-weight: 500;
+    color: rgb(74, 74, 74)!important;
+    font-family: 'Nunito', sans-serif!important;
+  }
+
+
+  
+
+@media screen and (max-width: 991px ){
+
+    .navbar .oculto {
+        display: block;
+    }
+
+}

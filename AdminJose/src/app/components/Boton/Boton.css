@@ -1,0 +1,77 @@
+.gradient {
+
+    background-color: #0ADA7C!important;
+    transition: all 0.3s ease 0s;
+}
+
+.boton {
+color: white;
+font-family: 'Nunito', sans-serif!important;
+font-size: 18px;
+font-weight: 700;
+width: 150px;
+height: 40px;
+border: none;
+border-radius: 5px;
+transition: all 0.2s;
+/*box-shadow: rgb(210, 210, 210) 5px 6px 8px 0px;*/
+}
+
+.boton:hover {
+opacity: 0.85;
+font-size: 18px;
+height: 40px;
+background-color: black!important;
+transform-origin: 2px;
+}
+
+.cerrar {
+    background: #FF416C;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.eliminar { 
+    background: #FF416C;
+    background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FF4B2B, #FF416C);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: baseline ;
+    width: 48px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.eliminar:hover {
+    background: black!important;
+    background: -webkit-linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0))!important;  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0))!important;
+}
+
+
+
+.eliminar .material-icons {
+    line-height: 1px;
+    display: flex;
+    font-size: 23px;
+}
+
+
+
+.editar {
+    background: #CAC531;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #F3F9A7, #CAC531);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #F3F9A7, #CAC531); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+
+.logout {
+    line-height: normal!important;
+}
