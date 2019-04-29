@@ -281,14 +281,14 @@ export default class ModalV extends Component {
                       onChange={this.onChange} 
                       placeholder="Monto recibido" 
                   />
-                  <FormText>Ingrese el monto recibido por el cliente</FormText>
+                  <FormText>Debe ingresar monto recibido por el cliente</FormText>
                 </div>
                 </Col>
                 </Row>
          
               <br/>
               <Modal.Footer>
-              <Button disabled={this.state.haber == 0 && true }
+              <Button disabled={this.state.haber <= 0 && true }
                   type="submit" 
                   onClick={this.onClick} 
                   className="boton gradient" 
