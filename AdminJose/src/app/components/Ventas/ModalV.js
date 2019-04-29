@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connection } from '../EndPoint/firestore';
-import { Button, Modal, Row, Col } from 'react-bootstrap';
+import { Button, Modal, Row, Col, FormText } from 'react-bootstrap';
 import './ModalV.css';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 
@@ -279,15 +279,16 @@ export default class ModalV extends Component {
                       name="haber" 
                       value={haber} 
                       onChange={this.onChange} 
-                      placeholder="P/unitario" 
+                      placeholder="Monto recibido" 
                   />
+                  <FormText>Ingrese el monto recibido por el cliente</FormText>
                 </div>
                 </Col>
                 </Row>
          
               <br/>
               <Modal.Footer>
-              <Button  
+              <Button disabled={this.state.haber == 0 && true }
                   type="submit" 
                   onClick={this.onClick} 
                   className="boton gradient" 
