@@ -42,10 +42,6 @@ componentDidMount() {
   this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
 } 
 
-deleteDoc = (id) => {
-  this.ref.doc(id).delete();
-}
-
 onChange = (e) => {
   const state = this.state
   state[e.target.name] = e.target.value;

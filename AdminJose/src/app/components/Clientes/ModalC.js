@@ -135,11 +135,11 @@ export default class ModalC extends Component {
               </div>
               <br/>
               <Modal.Footer>
-              <Button  
+              <Button disabled={ this.state.nomb === "" }
                   type="submit" 
                   onClick={this.handleClose} 
                   className="boton gradient" 
-                  onSubmit 
+                  onSubmit={this.onSubmit}
               > {this.props.propertie}</Button>
               <Button className="boton cerrar" 
                       onClick={this.handleClose} 

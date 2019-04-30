@@ -61,7 +61,7 @@ render(){
     return(    
         <>
              <br/>
- <Card>
+ <Card style={{zIndex:"1"}}>
         <Navbar className="bg-light justify-content-between">
             <Form inline>   
                 <h5 >Ingrese el cliente a buscar</h5>
@@ -76,9 +76,6 @@ render(){
 <Card  id="table-to-xls" >
         <div className="container">
         <br/>
-       
-        
-
        
           <h4 className="center-text">MOVIMIENTOS DE CLIENTES</h4>
           <br/>
@@ -118,8 +115,6 @@ render(){
           </Table>
           </Col>
           </Row>
-            
-        
        
         </div>
             
@@ -127,13 +122,14 @@ render(){
         <br/>
         <Container>
           <Row>
-        <ReactHTMLTableToExcel
-                    id="test-table-xls-button"
-                    className="download-table-xls-button"
-                    table="table-to-xls"
-                    filename="tablexls"
-                    sheet="tablexls"
-                    buttonText="Generar comprobante"/>
+          <ReactHTMLTableToExcel
+            id="test-table-xls-button"
+            className="download-table-xls-button"
+            table="table-to-xls"
+            filename="tablexls"
+            sheet="tablexls"
+            buttonText="Generar comprobante"
+          />
             </Row>
             </Container>
                    

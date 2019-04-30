@@ -44,10 +44,6 @@ componentDidMount() {
   this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
 } 
 
-deleteDoc = (id) => {
-  this.ref.doc(id).delete();
-}
-
 onChange = (e) => {
   const state = this.state
   state[e.target.name] = e.target.value;
@@ -63,7 +59,6 @@ render(){
     <br/>
       <h4 className="center-text">PRODUCTOS </h4>
       <ModalView
-        
         propertie="Agregar" 
         path={this.path}
         quantity={0}>
@@ -102,7 +97,7 @@ render(){
         <td>
         <Button 
               className="boton eliminar" 
-              onClick={() => { if (window.confirm('¿Seguro queres eliminar este documento?')) this.deleteDoc(board.key) } }
+              onClick={() => { if (window.confirm('¿Seguro queres eliminar este documento?')) this.ref.doc(board.key).delete()} }
             ><i className="material-icons">close</i>
             </Button>
             </td>

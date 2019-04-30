@@ -6,13 +6,14 @@ import LogOut from '../../../LogOut';
 
 
 export default class Sidenav extends React.Component{
+ 
 
     render(){
         return(
             <div bg="light" variant="light" id="sidebar-wrapper">
             <div className="contenedor-icono sidebar-heading"> <i className="material-icons">dashboard</i>ZPanel <p>v1.0</p></div>
             <div className="list-group list-group-flush">
-            <NavLink to="/home"><Nav className="contenedor-icono" >
+            <NavLink to="/"><Nav className="contenedor-icono" >
             <i className="material-icons">home</i>HOME</Nav></NavLink>
         
               <NavLink to="/stock"> <Nav className="contenedor-icono"><i className="material-icons">check_box</i>STOCK</Nav></NavLink>
@@ -22,7 +23,13 @@ export default class Sidenav extends React.Component{
               <NavLink to="/Movimientos"><Nav className="contenedor-icono" ><i className="material-icons">people</i>MOVIMIENTOS</Nav></NavLink>
               <br/>
               <ul> <LogOut /></ul> 
-              {this.props.stock <= 10 && <Alert variant="danger">Stock bajo</Alert>}
+              {this.props.stock.map( stk =>
+                    stk.cant <= 10 
+                    ? 
+                        <Alert variant="danger">Stock bajo, Revisar</Alert> 
+                    :
+                         <span></span>
+              )}
               
             </div>
             <br/>

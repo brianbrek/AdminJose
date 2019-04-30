@@ -19,8 +19,10 @@ export default class ModalView extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
+  //OnSubmit Action, add and update
+
   updateData = () => {
-    const {cant, desp } = this.state;
+    const { cant, desp } = this.state;
 
     this.ref.doc(this.props.identify).update({
       cant,
@@ -30,8 +32,6 @@ export default class ModalView extends Component {
       console.error("Error adding document: ", error);
     });
   }
-
-  //OnSubmit Action, add and update
 
   addData = () => {
     const { nomb, desc, cant, desp } = this.state;
@@ -61,15 +61,14 @@ export default class ModalView extends Component {
 
   onChange = (e) => {
     const state = this.state
+    state[e.target.name] = e.target.value;
 
     if(this.props.collection === 'desperdicios' && e.target.name === 'desp') {
-      state[e.target.name] = e.target.value;
       this.setState({
         cant: this.props.quantity - e.target.value,
         desp: parseInt(this.props.qdesp) + parseInt(e.target.value)
       });
     } else {
-      state[e.target.name] = e.target.value;
       this.setState({desp: this.props.quantity});
     }
   }
@@ -84,18 +83,10 @@ export default class ModalView extends Component {
     this.setState({ show: true });
   }
 
-
-
-
-
-
-
-
   //Render main
 
   render() {
     const { nomb, desc, cant } = this.state;
-
 
     return (
       <>
@@ -140,6 +131,7 @@ export default class ModalView extends Component {
                 {
                   this.props.collection === 'desperdicios'
                   ?
+                  <>
                   <input type="number" 
                         className="form-control" 
                         id="inpDesp"
@@ -148,6 +140,11 @@ export default class ModalView extends Component {
                         onChange={this.onChange} 
                         placeholder="Cantidad" 
                   />
+                  <br></br>
+                  <Button className="boton cerrar" 
+                      onClick={() => (this.setState({desp: 0, cant: this.props.quantity}))} 
+                  >Vaciar</Button>
+                  </>
                   : 
                   <input type="number" 
                         className="form-control" 
@@ -160,7 +157,8 @@ export default class ModalView extends Component {
               </div>
               <br/>
               <Modal.Footer>
-              <Button  
+              <Button disabled={ this.state.nomb === '' ? this.props.collection !== 'desperdicios' : '' }
+                       
                   type="submit" 
                   onClick={this.handleClose} 
                   className="boton gradient" 

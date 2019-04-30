@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connection } from '../EndPoint/firestore';
-import { Button, Modal, Row, Col, FormText } from 'react-bootstrap';
+import { Button, Modal, Row, Col } from 'react-bootstrap';
 import './ModalV.css';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 
@@ -48,8 +48,6 @@ export default class ModalV extends Component {
       console.error("Error adding document: ", error);
     });
   }
-
-  //OnSubmit Action, add and update
 
   addData = () => {
     const { nomb, dir, tel, haber, total, stock, cant, punit } = this.state;
@@ -106,8 +104,6 @@ export default class ModalV extends Component {
     }
     this.setState({stock: []})
   }
-
-  //Change state of constructor
 
   changeSelecte = () => {
     var combo = document.getElementById("sel");
@@ -212,7 +208,7 @@ export default class ModalV extends Component {
         <div className="panel panel-default">
           <div className="panel-body">
             <form onSubmit={this.onSubmit}>
-              <div className="form-group">
+              <div className={this.props.propertie === "Editar" ? 'oculto' : 'form-group'}>
                 <label className='label-margin'>Cliente: </label>
                 <select id="sel2" onClick={this.changeInput}>
                 {
@@ -223,7 +219,7 @@ export default class ModalV extends Component {
                 </select>
               </div>
               <br/>
-              <div className="form-group">
+              <div className={this.props.propertie === "Editar" ? 'oculto' : 'form-group'}>
                 <label className='label-margin'>Producto:</label>
                 <select id="sel">
                 {
@@ -237,9 +233,9 @@ export default class ModalV extends Component {
                 <Row>
                   <Col>
                 
-                <label className='label-margin'>Cantidad (Kg/Cajas):</label>
+                <label className={this.props.propertie === 'Editar' ? 'oculto' : 'label-margin'}>Cantidad (Kg/Cajas):</label>
                 <input type="number" 
-                    className="form-control" 
+                    className={this.props.propertie === "Editar" ? 'oculto' : 'form-control'} 
                     name="cant" 
                     value={cant} 
                     onChange={this.onChange} 
@@ -249,9 +245,9 @@ export default class ModalV extends Component {
                 <br/>
                 </Col>
                 <Col>
-                <label className='label-margin'>Precio unitario:</label>
+                <label className={this.props.propertie === 'Editar' ? 'oculto' : 'label-margin'}>Precio unitario:</label>
                 <input type="number" 
-                    className="form-control" 
+                    className={this.props.propertie === "Editar" ? 'oculto' : 'form-control'} 
                     name="punit" 
                     value={punit} 
                     onChange={this.onChange} 
@@ -261,11 +257,10 @@ export default class ModalV extends Component {
                   </Col>
                   </Row>
 
-                <Button 
-                // onClick={() => ToastsStore.success("OK! Producto agregado a la venta")} 
+                <Button  
                   onClick={this.changeSelecte}
-                  className="boton gradient"  
-                > Anadir</Button>
+                  className={this.props.propertie === "Editar" ? 'oculto' : 'boton gradient'}
+                > Añadir</Button>
                 <ToastsContainer store={ToastsStore}/>
                  
                
@@ -281,14 +276,13 @@ export default class ModalV extends Component {
                       onChange={this.onChange} 
                       placeholder="Monto recibido" 
                   />
-                  <FormText>Debe ingresar monto recibido por el cliente</FormText>
                 </div>
                 </Col>
                 </Row>
          
               <br/>
               <Modal.Footer>
-              <Button disabled={this.state.haber <= 0 && true }
+              <Button  disabled={ this.state.haber <= 0 || this.state.punit < 0 || this.state.cant < 0 || this.state.nomb === '' }
                   type="submit" 
                   onClick={this.onClick} 
                   className="boton gradient" 

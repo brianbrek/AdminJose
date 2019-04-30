@@ -60,8 +60,8 @@ onChange = (e) => {
 }
 
 render(){
+
     return(
-      
       <>
      <br/>
      <Card>
@@ -80,7 +80,6 @@ render(){
         <Table 
           className="table-background" 
           responsive bordered hover
-          
         >
       <thead>
       <tr>
@@ -90,7 +89,6 @@ render(){
         <th>Total</th>
         <th>Haber</th>
         <th>Saldo</th>
-        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -102,12 +100,6 @@ render(){
         <td>{board.total}</td>
         <td>{board.haber}</td>
         <td>$ {board.saldo}</td>
-        <td><ModalV 
-              propertie="Editar" 
-              identify={board.key} 
-              path="ventas">
-            </ModalV>
-        </td>
       </tr>
       )}
       </tbody>
