@@ -282,7 +282,7 @@ export default class ModalV extends Component {
          
               <br/>
               <Modal.Footer>
-              <Button  disabled={ this.state.haber <= 0 || this.state.punit < 0 || this.state.cant < 0 || this.state.nomb === '' }
+              <Button  disabled={ this.state.haber <= 0 || this.state.punit < 0 || this.state.cant < 0  }
                   type="submit" 
                   onClick={this.onClick} 
                   className="boton gradient" 

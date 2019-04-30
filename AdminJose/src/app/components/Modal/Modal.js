@@ -157,7 +157,7 @@ export default class ModalView extends Component {
               </div>
               <br/>
               <Modal.Footer>
-              <Button disabled={ this.state.nomb === '' ? this.props.collection !== 'desperdicios' : '' }
+              <Button disabled={ this.state.nomb === '' ? this.props.collection !== 'desperdicios' && this.props.propertie !== "Editar" : '' }
                        
                   type="submit" 
                   onClick={this.handleClose} 
