@@ -78,6 +78,9 @@ export default class Home extends React.Component{
                 <h1>{this.state.stock}<i className="material-icons">bar_chart</i></h1>
                 </Card></Link></Col>
 
+                <Col sm><Link to={'/ventas'}><Card className="card-body card4"><h4>Ventas</h4>
+                <h1>{this.state.sales} <i className="material-icons">timeline</i></h1></Card></Link></Col>
+
                 <Col sm><Link to={'/clientes'}><Card className="card-body card2"><h4>Clientes</h4>
                 <h1>{this.state.clients}<i className="material-icons">how_to_reg</i> </h1></Card></Link></Col>
                
@@ -85,8 +88,7 @@ export default class Home extends React.Component{
                 <h1>{this.state.desp} <i className="material-icons">restore_from_trash</i></h1>
                 </Card></Link></Col>
 
-                <Col sm><Link to={'/ventas'}><Card className="card-body card4"><h4>Ventas</h4>
-                <h1>{this.state.sales} <i className="material-icons">timeline</i></h1></Card></Link></Col>
+          
                 </Row>
                
                 <Row>
