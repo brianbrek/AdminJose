@@ -60,9 +60,7 @@ firestore
       <Container>
       
       <Card.Body>
-      <Card.Title>
-      <h2>Ingresar</h2>
-      </Card.Title>
+     
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Usuario</Form.Label>
     <Form.Control type="email"  name="email" placeholder="Ingrese usuario" value={email} onChange={this.handleInputChange}/>

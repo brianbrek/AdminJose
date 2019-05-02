@@ -86,12 +86,17 @@ export default class ModalV extends Component {
   }  
 
   mainUpdate = (doc, q) => {
-    this.refProductos.doc(doc.id).update({
-        cant: doc.data().cant - q
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
+    if (doc.data().cant - q > 0) {
+      this.refProductos.doc(doc.id).update({
+          cant: doc.data().cant - q
+      })
+      .catch((error) => {
+        console.error("Error adding document: ", error);
+      });
+    } else {
+      console.log("Venta no procedente, falta de stock")
+      //hacer algo para que la venta se notifique como no procedente
+    }
   }
 
   onSubmit = (e) => {

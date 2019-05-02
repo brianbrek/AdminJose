@@ -23,12 +23,12 @@ export default class Sidenav extends React.Component{
               <NavLink to="/Movimientos"><Nav className="contenedor-icono" ><i className="material-icons">people</i>MOVIMIENTOS</Nav></NavLink>
               <br/>
               <ul> <LogOut /></ul> 
-              {this.props.stock.map( stk =>
+              {this.props.stock.map( (stk, i=0) =>
                     stk.cant <= 10 
                     ? 
-                        <Alert variant="danger">Stock bajo, Revisar</Alert> 
+                        <Alert key={i+1} variant="danger">Stock bajo, Revisar - ({stk.nomb})</Alert> 
                     :
-                         <span></span>
+                         <span key={i+1}></span>
               )}
               
             </div>
