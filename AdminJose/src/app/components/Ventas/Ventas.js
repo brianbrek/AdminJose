@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Row, Table, Card } from 'react-bootstrap';
 import ModalV from './ModalV';
 import { connection } from '../EndPoint/firestore';
+import Factura from '../Factura/Factura'
 
 
 export default class Ventas extends React.Component{
@@ -87,8 +88,7 @@ render(){
         <th>Cliente</th>
         <th>Productos</th>
         <th>Total</th>
-        <th>Haber</th>
-        <th>Saldo</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -97,14 +97,14 @@ render(){
         <td>{board.fecha}</td>
         <td>{board.nomb}</td>
         <td>{board.stock.map((i, index=0) => <li key={index+1}>{i.nomb} - Cant: {i.cant} - P/unit: ${i.punit}</li>)}</td>
-        <td>{board.total}</td>
-        <td>{board.haber}</td>
-        <td>$ {board.saldo}</td>
+        <td>${board.total}</td>
+        <td> <Factura identify={board}/></td>
       </tr>
       )}
       </tbody>
       </Table>
       </Col>
+     
       </Row>
     </div>
     </Card>

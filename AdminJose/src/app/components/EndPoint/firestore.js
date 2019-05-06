@@ -9,7 +9,8 @@ var config = {
     databaseURL: "https://admin-inventory.firebaseio.com",
     projectId: "admin-inventory",
     storageBucket: "admin-inventory.appspot.com",
-    messagingSenderId: "634856400716"
+    messagingSenderId: "634856400716",
+    appId: "1:634856400716:web:30024dd0639ad444"
 };
 
 firebase.initializeApp(config);

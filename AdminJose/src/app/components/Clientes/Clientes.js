@@ -93,7 +93,7 @@ render(){
         <td><ModalC 
               propertie="Editar" 
               identify={board.key} 
-              path={this.path}>
+              path={this.path}> 
             </ModalC>
         </td>
         <td><Button 

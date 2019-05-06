@@ -32,6 +32,8 @@ background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, F
 
 }
 
+
+
 .eliminar { 
     background: #FF416C;
     background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */

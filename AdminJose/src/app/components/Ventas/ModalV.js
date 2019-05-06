@@ -13,6 +13,7 @@ export default class ModalV extends Component {
     this.refClients = connection.collection('clientes');
     this.refProductos = connection.collection('stock');
     this.state = {
+      sum: 0,
       fecha: '',
       nomb: '',
       dir: '',
@@ -69,6 +70,14 @@ export default class ModalV extends Component {
       console.error("Error adding document: ", error);
     });
     this.updateStock();
+  }
+
+  sumStock = () => {
+    var s = 0
+    this.state.stock.map( (e) =>
+      s += parseInt(e.punit*e.cant)
+    )
+    return s
   }
 
   updateStock = () => {
@@ -180,6 +189,7 @@ export default class ModalV extends Component {
       tot += parseInt(this.state.stock[i].punit * this.state.stock[i].cant);
     }
     this.setState({total: tot})
+
   }
 
   //Modal action
@@ -262,19 +272,27 @@ export default class ModalV extends Component {
                   </Col>
                   </Row>
 
-                <Button  
+                <Button style={{marginBottom:'12px'}} disabled={ this.state.punit < 0 || this.state.cant < 0 && true}
                   onClick={this.changeSelecte}
-                  className={this.props.propertie === "Editar" ? 'oculto' : 'boton gradient'}
-                > Añadir</Button>
+                  className={this.props.propertie === "Editar" ? 'oculto' : 'boton cerrar'}
+                > Añadir</Button> 
                 <ToastsContainer store={ToastsStore}/>
-                 
-               
+                
+                {
+                  this.state.stock.map( (e, i=0) => 
+                    <li key={i+1}>{e.nomb} - Cant: {e.cant} - p/unit:$ {e.punit}</li>
+                  )
+                }
+                <br/>
+                Total: $ {this.sumStock()}
+                  
                <Row>
                  <Col>
                  <br/>
                 <div>
                 <label className='label-margin'>Monto recibido:</label>
-                  <input type="number" 
+                <input
+                      type="number" 
                       className="form-control" 
                       name="haber" 
                       value={haber} 
@@ -287,7 +305,7 @@ export default class ModalV extends Component {
          
               <br/>
               <Modal.Footer>
-              <Button  disabled={ this.state.haber <= 0 || this.state.punit < 0 || this.state.cant < 0  }
+              <Button  disabled={ this.state.haber <= 0 || this.state.punit < 0 || this.state.cant < 0 || this.state.nomb === ''}
                   type="submit" 
                   onClick={this.onClick} 
                   className="boton gradient" 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar, FormControl, Form, Button, Row, Col, Table, Card, Container } from 'react-bootstrap';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-
+import ReactToPrint from 'react-to-print'
 import { connection } from '../EndPoint/firestore';
 
 export default class Movimientos extends React.Component{
@@ -59,8 +59,9 @@ calculateTotal = () => {
 render(){
     const { search } = this.state;
     return(    
-        <>
-             <br/>
+        <>    
+           
+       <br/>
  <Card style={{zIndex:"1"}}>
         <Navbar className="bg-light justify-content-between">
             <Form inline>   
@@ -73,8 +74,8 @@ render(){
         </Navbar>
         </Card>
         <br/>
-<Card  id="table-to-xls" >
-        <div className="container">
+<Card ref={el => (this.movimientos = el)}>
+        <div  className="container">
         <br/>
        
           <h4 className="center-text">MOVIMIENTOS DE CLIENTES</h4>
@@ -82,7 +83,7 @@ render(){
           <br/>
           <Row>
             <Col lg={12} sm={12}>
-            <Table
+            <Table id="table-to-xls" 
               className="table-background" 
               responsive bordered hover
             >
@@ -122,14 +123,10 @@ render(){
         <br/>
         <Container>
           <Row>
-          <ReactHTMLTableToExcel
-            id="test-table-xls-button"
-            className="download-table-xls-button"
-            table="table-to-xls"
-            filename="tablexls"
-            sheet="tablexls"
-            buttonText="Generar comprobante"
-          />
+          <ReactToPrint
+          trigger={() => <a href="#">Imprimir Comprobante</a>}
+          content={() => this.movimientos}
+        />    
             </Row>
             </Container>
                    
