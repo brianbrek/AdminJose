@@ -52,7 +52,7 @@ class Factura extends Component {
 
         
           <ReactToPrint
-          trigger={() => <a style={{}} href="#"><i style={{color:'rgb(56, 104, 252)', fontSize:'28px'}} className='material-icons'>print</i></a>}
+          trigger={() => <a href="#"><i style={{color:'rgb(56, 104, 252)', fontSize:'28px'}} className='material-icons'>print</i></a>}
           content={() => this.componentRef}
         />
      

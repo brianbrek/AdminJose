@@ -272,7 +272,7 @@ export default class ModalV extends Component {
                   </Col>
                   </Row>
 
-                <Button style={{marginBottom:'12px'}} disabled={ this.state.punit < 0 || this.state.cant < 0 && true}
+                <Button style={{marginBottom:'12px'}} disabled={ this.state.punit < 0 || this.state.cant < 0 }
                   onClick={this.changeSelecte}
                   className={this.props.propertie === "Editar" ? 'oculto' : 'boton cerrar'}
                 > Añadir</Button> 

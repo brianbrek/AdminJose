@@ -43,12 +43,18 @@ font-family: 'Lato', sans-serif!important;
   }
 
 
-  
+
 
 @media screen and (max-width: 991px ){
 
     .navbar .oculto {
         display: block;
-    }
+        color: #396afc!important;
+    
+        font-size: 20px;
+      
+      }
+
+   
 
 }

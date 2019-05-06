@@ -9,7 +9,8 @@ import LogOut from '../../../LogOut';
 export default class Header extends React.Component{
     render(){
         return(
-<Navbar collapseOnSelect expand="lg" className="border-bottom" bg="light" variant="light" style={{boxShadow:'rgb(204, 204, 204) 7px 2px 10px 0px'}}>
+<Navbar collapseOnSelect expand="lg" className="border-bottom navbar-blue" bg="light" variant="light" style={{boxShadow:'rgb(204, 204, 204) 7px 2px 10px 0px'}}>
+<div className="contenedor-icono oculto"><i className="material-icons">dashboard</i> Admin Inventario</div>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">

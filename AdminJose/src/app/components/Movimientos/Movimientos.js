@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navbar, FormControl, Form, Button, Row, Col, Table, Card, Container } from 'react-bootstrap';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import ReactToPrint from 'react-to-print'
 import { connection } from '../EndPoint/firestore';
 
