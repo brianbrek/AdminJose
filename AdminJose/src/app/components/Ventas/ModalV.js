@@ -13,6 +13,7 @@ export default class ModalV extends Component {
     this.refClients = connection.collection('clientes');
     this.refProductos = connection.collection('stock');
     this.state = {
+      improcedent: false,
       sum: 0,
       fecha: '',
       nomb: '',
@@ -34,21 +35,6 @@ export default class ModalV extends Component {
     this.calculateTotal(); 
     this.handleClose();
    } 
-
-  updateData = () => {
-    const { nomb, dir, tel, haber, saldo } = this.state;
-
-    this.ref.doc(this.props.identify).update({
-        nomb,
-        dir,
-        tel,
-        haber,
-        saldo
-    })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
-    });
-  }
 
   addData = () => {
     const { nomb, dir, tel, haber, total, stock, cant, punit } = this.state;
@@ -103,19 +89,13 @@ export default class ModalV extends Component {
         console.error("Error adding document: ", error);
       });
     } else {
-      console.log("Venta no procedente, falta de stock")
-      //hacer algo para que la venta se notifique como no procedente
+      alert("Venta no procedente, falta de stock")
     }
   }
 
   onSubmit = (e) => {
     e.preventDefault();
-    
-    if(this.props.propertie === 'Agregar') {
-      this.addData();
-    }else{
-      this.updateData();
-    }
+    this.addData();
     this.setState({stock: []})
   }
 

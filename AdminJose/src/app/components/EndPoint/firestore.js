@@ -5,12 +5,12 @@ require('firebase/auth')
 
 var config = {
     apiKey: "AIzaSyC27jHJi5PozCE7zI05b2ohdfvElDVrcTQ",
-    authDomain: "admin-inventory.firebaseapp.com",
-    databaseURL: "https://admin-inventory.firebaseio.com",
-    projectId: "admin-inventory",
-    storageBucket: "admin-inventory.appspot.com",
-    messagingSenderId: "634856400716",
-    appId: "1:634856400716:web:30024dd0639ad444"
+  authDomain: "admin-inventory.firebaseapp.com",
+  databaseURL: "https://admin-inventory.firebaseio.com",
+  projectId: "admin-inventory",
+  storageBucket: "admin-inventory.appspot.com",
+  messagingSenderId: "634856400716",
+  appId: "1:634856400716:web:30024dd0639ad444"
 };
 
 firebase.initializeApp(config);

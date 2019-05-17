@@ -26,7 +26,7 @@ export default class Sidenav extends React.Component{
               {this.props.stock.map( (stk, i=0) =>
                     stk.cant <= 10 
                     ? 
-                        <Alert key={i+1} variant="danger">Stock bajo, Revisar - ({stk.nomb})</Alert> 
+                        <Alert key={i+1} variant="danger">Stock bajo - ({stk.nomb})</Alert> 
                     :
                          <span key={i+1}></span>
               )}

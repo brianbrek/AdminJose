@@ -45,7 +45,6 @@ class Factura extends Component {
   }
 
     render() {
-        console.log(this.state.dir)
         return (
           <>
           <ReactToPrint
@@ -65,7 +64,8 @@ class Factura extends Component {
                           <td className="title">
                               <h1>Don Jose</h1>
                              </td>                          
-                            <td>                              
+                            <td>         
+                               Factura: {this.props.identify.key.substring(0,5)}<br/>             
                                Fecha:{this.props.identify.fecha}<br/>                               
                             </td>
                         </tr>
@@ -78,7 +78,7 @@ class Factura extends Component {
                     <table>
                         <tr>
                             <td>
-                               CABA<br/>
+                                CABA<br/>
                                 12345 Sunny Road<br/>
                                 Sunnyville, CA 12345
                             </td>

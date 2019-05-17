@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Table, Card } from 'react-bootstrap';
+import { Col, Row, Table, Card, Button } from 'react-bootstrap';
 import ModalV from './ModalV';
 import { connection } from '../EndPoint/firestore';
 import Factura from '../Factura/Factura'
@@ -84,22 +84,31 @@ render(){
         >
       <thead>
       <tr>
+        <th>id</th>
         <th>Fecha</th>
         <th>Cliente</th>
         <th>Productos</th>
         <th>Total</th>
         <th></th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
-      {this.state.boards.map(board =>
-      <tr key={board.key}>
-        <td>{board.fecha}</td>
-        <td>{board.nomb}</td>
-        <td>{board.stock.map((i, index=0) => <li key={index+1}>{i.nomb} - Cant: {i.cant} - P/unit: ${i.punit}</li>)}</td>
-        <td>${board.total}</td>
-        <td> <Factura identify={board}/></td>
-      </tr>
+      {this.state.boards.map((board, id) =>
+        <tr key={board.key}>
+          <td>{board.key.substring(0,5)}</td>
+          <td>{board.fecha}</td>
+          <td>{board.nomb}</td>
+          <td>{board.stock.map((i, index=0) => <li key={index+1}>{i.nomb} - Cant: {i.cant} - P/unit: ${i.punit}</li>)}</td>
+          <td>${board.total}</td>
+          <td> <Factura identify={board}/></td>
+          <td><Button 
+                className="boton eliminar" 
+                onClick={() => { if (window.confirm('¿Seguro queres eliminar este documento?')) this.ref.doc(board.key).delete()} }
+              ><i className="material-icons">close</i>
+              </Button> 
+          </td>
+        </tr>
       )}
       </tbody>
       </Table>

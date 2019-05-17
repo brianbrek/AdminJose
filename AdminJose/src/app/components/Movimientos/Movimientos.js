@@ -1,6 +1,5 @@
 import React from 'react';
 import { Navbar, FormControl, Form, Button, Row, Col, Table, Card, Container } from 'react-bootstrap';
-import ReactToPrint from 'react-to-print'
 import { connection } from '../EndPoint/firestore';
 
 export default class Movimientos extends React.Component{
@@ -122,14 +121,8 @@ render(){
         <br/>
         <Container>
           <Row>
-          <ReactToPrint
-          trigger={() => <a href="#">Imprimir Comprobante</a>}
-          content={() => this.movimientos}
-        />    
-            </Row>
-            </Container>
-                   
-
+        </Row>
+        </Container>
         </>
     );
   }

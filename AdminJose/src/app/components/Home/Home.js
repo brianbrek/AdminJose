@@ -67,7 +67,7 @@ export default class Home extends React.Component{
 
     render(){
         return(
-            <div className="container">
+            <Container>
             <br/>
             
               <h4 className="center-text">HOME</h4>
@@ -93,7 +93,7 @@ export default class Home extends React.Component{
                
                 <Row>
                     <Col lg>
-                        <Card style={{height:"300px", boxShadow: 'rgb(204, 204, 204) 9px 8px 15px 4px' }}className="card5">
+                        <Card style={{height:"auto", boxShadow: 'rgb(204, 204, 204) 9px 8px 15px 4px' }}className="card5">
                         <Container>
                             {this.state.products.map( (e, index=0) =>
                                 <div key={index+1}>
@@ -110,7 +110,7 @@ export default class Home extends React.Component{
                     </Col>
                 </Row>
              
-            </div>
+            </Container>
         );
     }
 }

@@ -99,8 +99,8 @@ render(){
               className="boton eliminar" 
               onClick={() => { if (window.confirm('¿Seguro queres eliminar este documento?')) this.ref.doc(board.key).delete()} }
             ><i className="material-icons">close</i>
-            </Button>
-            </td>
+        </Button>
+        </td>
       </tr>
       
       )}
