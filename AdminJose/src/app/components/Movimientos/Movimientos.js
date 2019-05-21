@@ -16,10 +16,8 @@ constructor() {
 
 onChange = (e) => {
     e.preventDefault();
-    const state = this.state
-    state[e.target.name] = e.target.value;
-    this.setState({state});
-}
+    this.setState({search: e.target.value})
+  }
 
 queryExecute = () => {
 
@@ -39,6 +37,7 @@ queryExecute = () => {
             });
         })
     })
+    .then((result) => this.setState({boards}))
     .catch((error) => {
         console.error("Error: ", error);
     });
