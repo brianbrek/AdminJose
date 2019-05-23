@@ -67,7 +67,7 @@ export default class Home extends React.Component{
 
     render(){
         return(
-            <Container>
+            <div className="container">
             <br/>
             
               <h4 className="center-text">HOME</h4>
@@ -110,7 +110,7 @@ export default class Home extends React.Component{
                     </Col>
                 </Row>
              
-            </Container>
+            </div>
         );
     }
 }

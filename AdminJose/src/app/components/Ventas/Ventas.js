@@ -12,6 +12,7 @@ constructor() {
   this.ref = connection.collection('ventas');
   this.unsubscribe = null;
   this.state = {
+    id: '',
     show: false,
     fecha: '',
     nomb: '',
@@ -50,6 +51,17 @@ onCollectionUpdate = (querySnapshot) => {
   });
 }
 
+calculateId = () => {
+  this.ref.get().then(snap => {
+    var date = new Date()
+    this.setState({id:  date.getHours().toString() +
+                        date.getMinutes().toString() +
+                        date.getSeconds().toString() + '-' +
+                        (snap.size+1).toString()
+    })
+  });
+}
+
 componentDidMount() {
   this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
 } 
@@ -61,9 +73,9 @@ onChange = (e) => {
 }
 
 render(){
-
     return(
       <>
+      {this.calculateId()}
      <br/>
      <Card>
     <div className="container">
@@ -72,7 +84,8 @@ render(){
       <ModalV 
         propertie="Agregar" 
         path="ventas"
-        collection={this.state.boards}>
+        collection={this.state.boards}
+        size={this.state.id}>
       </ModalV>
       <br/>
       <br/>
@@ -94,13 +107,14 @@ render(){
       </tr>
       </thead>
       <tbody>
+        {/*<td>{board.key.substring(board.key.search('-')+1 ,board.key.length)}</td>*/}
       {this.state.boards.map((board, id) =>
         <tr key={board.key}>
-          <td>{board.key.substring(0,5)}</td>
+          <td>{board.key}</td>
           <td>{board.fecha}</td>
           <td>{board.nomb}</td>
           <td>{board.stock.map((i, index=0) => <li key={index+1}>{i.nomb} - Cant: {i.cant} - P/unit: ${i.punit}</li>)}</td>
-          <td>${board.total}</td>
+          <td>$ {board.total}</td>
           <td> <Factura identify={board}/></td>
           <td><Button 
                 className="boton eliminar" 

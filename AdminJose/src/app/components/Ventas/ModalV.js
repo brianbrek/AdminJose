@@ -4,7 +4,6 @@ import { Button, Modal, Row, Col } from 'react-bootstrap';
 import './ModalV.css';
 import {ToastsContainer, ToastsStore} from 'react-toasts';
 
-
 export default class ModalV extends Component {
 
   constructor(props) {
@@ -29,18 +28,19 @@ export default class ModalV extends Component {
       clients: [],
       show: false
     };
+    this.size = 0
   }
 
   onClick = (e) => { 
     this.calculateTotal(); 
     this.handleClose();
-   } 
+  }
 
   addData = () => {
     const { nomb, dir, tel, haber, total, stock, cant, punit } = this.state;
     var date = new Date()
 
-    this.ref.add({
+    this.ref.doc(this.props.size).set({
       fecha: date.getDate() + ' - ' + (date.getMonth()+1) + ' - ' + date.getFullYear(),
       nomb,
       dir,
@@ -52,8 +52,11 @@ export default class ModalV extends Component {
       punit,
       total
     })
-    .catch((error) => {
-      console.error("Error adding document: ", error);
+    .then(function() {
+      console.log("Document successfully written!");
+    })
+    .catch(function(error) {
+      console.error("Error writing document: ", error);
     });
     this.updateStock();
   }
@@ -186,7 +189,7 @@ export default class ModalV extends Component {
 
   render() {
     const { cant, punit, haber } = this.state;
-    
+
     return (
       <>
     <Button className="boton gradient" onClick={this.handleShow}>

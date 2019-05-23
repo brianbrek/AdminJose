@@ -1,6 +1,8 @@
 import React from 'react';
 import { Navbar, FormControl, Form, Button, Row, Col, Table, Card, Container } from 'react-bootstrap';
 import { connection } from '../EndPoint/firestore';
+import ReactToPrint from 'react-to-print';
+import {ToastsContainer, ToastsStore} from 'react-toasts';
 
 export default class Movimientos extends React.Component{
 
@@ -16,11 +18,12 @@ constructor() {
 
 onChange = (e) => {
     e.preventDefault();
-    this.setState({search: e.target.value})
-  }
+    const state = this.state
+    state[e.target.name] = e.target.value;
+    this.setState({state});
+}
 
 queryExecute = () => {
-
     const boards = []
     this.ref.where("nomb", "==", this.state.search).get()
     .then( (s) => {
@@ -37,13 +40,10 @@ queryExecute = () => {
             });
         })
     })
-    .then((result) => this.setState({boards}))
+    .then(() => this.setState({boards}))
     .catch((error) => {
         console.error("Error: ", error);
     });
-    this.setState({
-        boards
-    })
 }
 
 calculateTotal = () => {
@@ -55,9 +55,9 @@ calculateTotal = () => {
 
 render(){
     const { search } = this.state;
+    console.log(this.state.boards)
     return(    
-        <>    
-           
+        <>   
        <br/>
  <Card style={{zIndex:"1"}}>
         <Navbar className="bg-light justify-content-between">
@@ -67,6 +67,7 @@ render(){
             <Form inline>
                 <FormControl type="text" name="search" value={search} placeholder="Buscar cliente" onChange={this.onChange} className=" mr-sm-2" />
                 <Button onClick={() => this.queryExecute()}>Consultar</Button>
+                <ToastsContainer store={ToastsStore}/>
             </Form>
         </Navbar>
         </Card>
@@ -74,7 +75,6 @@ render(){
 <Card ref={el => (this.movimientos = el)}>
         <div  className="container">
         <br/>
-       
           <h4 className="center-text">MOVIMIENTOS DE CLIENTES</h4>
           <br/>
           <br/>
@@ -119,8 +119,12 @@ render(){
         </Card>
         <br/>
         <Container>
-          <Row>
-        </Row>
+        <Row>
+          <ReactToPrint
+          trigger={() => <a href="#">Imprimir Comprobante</a>}
+          content={() => this.movimientos}
+        />    
+            </Row>
         </Container>
         </>
     );

@@ -65,7 +65,7 @@ class Factura extends Component {
                               <h1>Don Jose</h1>
                              </td>                          
                             <td>         
-                               Factura: {this.props.identify.key.substring(0,5)}<br/>             
+                               Factura: {this.props.identify.key}<br/>             
                                Fecha:{this.props.identify.fecha}<br/>                               
                             </td>
                         </tr>
