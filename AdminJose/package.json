@@ -11,7 +11,7 @@
     "react-html-table-to-excel": "^2.0.0",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "5.0.1",
     "react-to-print": "^2.1.2",
     "react-toasts": "^3.0.3"
   },
